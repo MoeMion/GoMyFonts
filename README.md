@@ -1,2 +1,2 @@
-# Go_Google_Fonts_Proxy_Server
-A Google Fonts proxy server.
+# GoMyFonts
+A Google Fonts proxier to build your own Google Fonts Mirror.
