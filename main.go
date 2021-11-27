@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chenyahui/gin-cache"
+	cache "github.com/chenyahui/gin-cache"
 	"github.com/chenyahui/gin-cache/persist"
 	"github.com/gin-gonic/gin"
 )
@@ -79,8 +79,8 @@ func main() {
 		cssHandeler(c, *link)
 	})
 	web.GET("/s/*res", cache.CacheByRequestURI(memoryStore, cacheDuration), fontHandeler)
-	web.StaticFile("/favicon.ico", "./dist/favicon.ico")
-	web.LoadHTMLFiles("dist/index.html", "dist/404.html")
+	web.StaticFile("/favicon.ico", "html/favicon.ico")
+	web.LoadHTMLFiles("html/index.html", "html/404.html")
 	web.GET("/", cache.CacheByRequestURI(memoryStore, cacheDuration), func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"title": *title,
