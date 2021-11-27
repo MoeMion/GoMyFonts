@@ -1,5 +1,9 @@
 # This is an example .goreleaser.yml file with some sensible defaults.
 # Make sure to check the documentation at https://goreleaser.com
+before:
+  hooks:
+    - go mod github.com/chenyahui/gin-cache
+    - go mod github.com/gin-gonic/gin
 builds:
   - env:
       - CGO_ENABLED=0
@@ -7,11 +11,6 @@ builds:
       - linux
       - windows
       - darwin
-    goarch:
-      - amd64
-      - 386
-      - arm
-      - arm64
 archives:
   - replacements:
       darwin: Darwin
